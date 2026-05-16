@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(253, 241, 188);
+            background: linear-gradient(to right, rgb(17, 177, 240),rgb(228, 227, 222),rgb(1, 163, 228));
+        }
+         h1{
+            text-align: center;
+           font-family: cursive;
+        }
+        .div1{
+            align-items: center;
+            height: 700px;
+            width: 30%;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            border-radius: 40px;
+            box-shadow: whitesmoke; 
+            box-shadow: 3px 3px 4px rgb(0, 0, 0);
+            background: radial-gradient(circle, rgb(235, 217, 220),rgb(223, 241, 240),white);
+        }
+        input{
+            border-radius: 3px;
+            height: 30px;
+            width: 340px;
+            background-color: rgb(196, 248, 248);
+        }
+        input:hover{
+            background-color: rgb(145, 222, 252);
+        }
+        .b1{
+            background-color: aquamarine;
+            border-radius: 100px;
+            height: 60px;
+            width: 60px;
+            font-size: larger;
+        }
+        .b2{
+            background-color: palevioletred;
+            border-radius: 100px;
+            height: 55px;
+            width: 55px;
+            font-size: larger;     
+            color: white;      
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <div align="center" class="div1">
+        <br>
+        <h1 align="center">Calculator</h1>
+
+        <br>
+        <input type="text" id="num1" placeholder="Enter First Number" onclick="setFocus('num1')">
+        <br>
+        <br>
+        <input type="text" id="num2" placeholder="Enter Second Number" onclick="setFocus('num2')">
+        <br>
+        <br>
+        <br>
+        <div>
+            <button class="b1" onclick="calculate('+')">Add</button> &emsp14; &emsp14; &emsp14;
+            <button class="b1" onclick="calculate('-')">Sub</button> &emsp14; &emsp14; &emsp14;
+            <button class="b1" onclick="calculate('*')">Mul</button> &emsp14; &emsp14; &emsp14;
+            <button class="b1" onclick="calculate('/')">Div</button>
+        </div>
+        <br>
+        <br>
+        <div >
+            <button class="b2" onclick="appendNumber(1)">1</button> &emsp14; &emsp14; 
+            <button class="b2" onclick="appendNumber(2)">2</button> &emsp14; &emsp14; 
+            <button class="b2" onclick="appendNumber(3)">3</button> &emsp14; &emsp14;
+        </div>
+        <br>
+        <div>
+            <button class="b2" onclick="appendNumber(4)">4</button> &emsp14; &emsp14; 
+            <button class="b2" onclick="appendNumber(5)">5</button> &emsp14; &emsp14; 
+            <button class="b2" onclick="appendNumber(6)">6</button> &emsp14; &emsp14;
+        </div>
+        <br>
+        <div>
+            <button class="b2" onclick="appendNumber(7)">7</button> &emsp14; &emsp14; 
+            <button class="b2" onclick="appendNumber(8)">8</button> &emsp14; &emsp14; 
+            <button class="b2" onclick="appendNumber(9)">9</button> &emsp14; &emsp14;
+        </div>
+        <br>
+        <div >
+            <button class ="b2" onclick="appendNumber(0)">0</button> &emsp14; &emsp14;
+        </div>
+        <div>
+            <h2>Result: <span id="result">0</span> </h2>
+        </div>
+    </div>
+    <script>
+        let a = 'num1';
+
+        function setFocus(inputId)
+        {
+            a = inputId;
+        }
+        
+        function appendNumber(number)
+        {
+            document.getElementById(a).value += number;
+        }
+
+        function calculate(operator)
+        {
+            let num1 = parseInt(document.getElementById('num1').value);
+            let num2 = parseInt(document.getElementById('num2').value);
+            let result;
+
+            switch(operator){
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/': result = num2 !== 0 ? num1 /num2: "Cannot divide by zero"; break;
+            }
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
